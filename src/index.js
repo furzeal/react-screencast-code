@@ -1,27 +1,20 @@
-import React from 'react'
-import {render} from 'react-dom'
+import React from 'react';
+import {render} from 'react-dom';
+import App from './components/App';
 
-function HelloWorld() {
-    return (
-        <div>
-            <h1>Hello World</h1>
-        </div>
-    )
-}
-
-render(<HelloWorld/>, document.getElementById('root'))
+render(<App/>, document.getElementById('root'));
 
 /*
-"use strict";
+ "use strict";
 
-function HelloWorld() {
-    return React.createElement(
-        "div",
-        null,
-        React.createElement(
-            "h1",
-            null,
-            "Hello World"
-        )
-    );
-}*/
+ function HelloWorld() {
+ return React.createElement(
+ "div",
+ null,
+ React.createElement(
+ "h1",
+ null,
+ "Hello World"
+ )
+ );
+ }*/
