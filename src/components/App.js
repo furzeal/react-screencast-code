@@ -1,14 +1,31 @@
-import React from 'react';
-import Article from './Article';
+import React, { PureComponent} from 'react';
+import ArticleList from './ArticleList';
 import articles from '../seeding';
+import 'bootstrap/dist/css/bootstrap.css';
 
-function App() {
-    return (
-        <div>
-            <h1>App Name</h1>
-            <Article article={articles[0]} />
-        </div>
-    )
+class App extends PureComponent {
+    state = {
+        reverted: false
+    };
+    render() {
+        console.log('---','rendering', this.state, articles.map(a=>a.id));
+        return (
+            <div className="container">
+                <div className="jumbotron">
+                    <h1 className="display-3">Simple React Application
+                        <button className="btn" onClick={this.revert}>Revert</button>
+                    </h1>
+                </div>
+                <ArticleList articles={this.state.reverted ? articles.slice().reverse(): articles}/>
+            </div>
+        )
+    }
+
+    revert = () => {
+        this.setState({
+            reverted: !this.state.reverted
+        });
+    }
 }
 
 export default App
